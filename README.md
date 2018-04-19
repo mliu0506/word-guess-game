@@ -1,4 +1,6 @@
-# word-guess-game  https://mliu0506.github.io/word-guess-game/
+# word-guess-game
+
+https://mliu0506.github.io/word-guess-game/
 
 Guess the Pokemon Character Name.
 Use Key events to listen for the letters that the player will type.
