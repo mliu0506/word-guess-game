@@ -1,5 +1,5 @@
 //Made the variables first to use in the functions
-//Array of words
+//Array of words.
 var Words = ['dragonite', 'eevee', 'pikachu', 'meowth', 'snorlax', 'vulpix', 'charmander', 'squirtle', 'jigglypuff'
 ];
 var blanksAndSuccess = []; //Correct guesses and blanks will be in this array
@@ -112,26 +112,8 @@ function PrintResult() {
   if (currentLetters.toString() == blanksAndSuccess.toString()) {
     winCounter++; // add to the win counter 
     document.getElementById("word").innerHTML = "The last word was " + currentWord;
-    if (currentWord == "eevee"){
-    document.getElementById("imageID").src = "assets/images/eevee.gif";
-      } else if (currentWord == "dragonite")  {
-      document.getElementById("imageID").src =  "assets/images/dragonite.gif";
-    } else if (currentWord == "pikachu")  {
-      document.getElementById("imageID").src =  "assets/images/pikachu3.webp";
-    } else if (currentWord == "meowth")  {
-      document.getElementById("imageID").src =  "assets/images/meowth.webp";
-    } else if (currentWord == "snorlax")  {
-      document.getElementById("imageID").src =  "assets/images/snorlax.gif";
-    } else if (currentWord == "vulpix")  {
-      document.getElementById("imageID").src =  "assets/images/vulpix.gif";
-    } else if (currentWord == "charmander")  {
-      document.getElementById("imageID").src =  "assets/images/charmander.gif";
-    } else if (currentWord == "squirtle")  {
-      document.getElementById("imageID").src =  "assets/images/squirtle.gif";  
-    } else if (currentWord == "jigglypuff")  {
-      document.getElementById("imageID").src =  "assets/images/jigglypuff.gif";  
-  }
-      document.getElementById("imageName").innerHTML = currentWord;
+    document.getElementById("imageID").src = "assets/images/" + currentWord + ".gif" ;
+    document.getElementById("imageName").innerHTML = currentWord;
 
     // Update the win counter in the HTML
     document.getElementById("winCounter").innerHTML = "You have won " + winCounter + " game(s)";
@@ -142,27 +124,8 @@ function PrintResult() {
   else if (numGuesses == 0) {
     lossCounter++; // add to the loss counter 
     document.getElementById("word").innerHTML = "The last word was " + currentWord;
-  
-    if (currentWord == "eevee"){
-      document.getElementById("imageID").src = "assets/images/eevee.gif";
-         } else if (currentWord == "dragonite")  {
-        document.getElementById("imageID").src =  "assets/images/dragonite.gif";
-      } else if (currentWord == "pikachu")  {
-        document.getElementById("imageID").src =  "assets/images/pikachu3.webp";
-      } else if (currentWord == "meowth")  {
-        document.getElementById("imageID").src =  "assets/images/meowth.webp";
-      } else if (currentWord == "snorlax")  {
-        document.getElementById("imageID").src =  "assets/images/snorlax.gif";
-      } else if (currentWord == "vulpix")  {
-        document.getElementById("imageID").src =  "assets/images/vulpix.gif";
-      } else if (currentWord == "charmander")  {
-        document.getElementById("imageID").src =  "assets/images/charmander.gif";
-      } else if (currentWord == "squirtle")  {
-        document.getElementById("imageID").src =  "assets/images/squirtle.gif";  
-      } else if (currentWord == "jigglypuff")  {
-        document.getElementById("imageID").src =  "assets/images/jigglypuff.gif";  
-      }
-      document.getElementById("imageName").innerHTML = currentWord;
+    document.getElementById("imageID").src = "assets/images/" + currentWord + ".gif" ;
+    document.getElementById("imageName").innerHTML = currentWord;
 
     // Update the loss counter in the HTML
     document.getElementById("lossCounter").innerHTML = "You have lost " + lossCounter + " game(s)";

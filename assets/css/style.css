@@ -23,9 +23,7 @@ h1,
 h2,
 h3,
 p{
-	  margin-bottom: 20px;
-
-
+    margin-bottom: 20px;
 }
 
 p:last-child {
@@ -46,16 +44,18 @@ h1{
 }
 h2,
 h3{
-	font-size: 22px;
+  font-size: 22px;
+  
 }
+
+
 
 .logo {
   width: 35px;
   height: 35px;
-
 }
 
-/*Full Slider on the Hone Page*/
+/*Full Slider on the Home Page*/
 .carousel-item {
   height: 91vh;
   min-height: 300px;
@@ -84,7 +84,20 @@ h3{
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
+/* For Testing
+.row div {
+  
+ 
+  border: 1px solid lightgrey;
+  background-color: #ff66cc;
+ 
+}
+ */
 
+
+.mh1 div {
+  height: 30vh; /* 30% of viewport height*/
+}
 
 /* Figure */
 
@@ -123,10 +136,39 @@ h3{
 footer {
 	background: #666666;
 	color: #ffffff;
-	padding: 30px 0;
+  padding: 30px 0;
+  z-index: 99;
 	clear: both;
 	border-top: 8px solid #666666;
 	font-size: 12px;
   text-align: center;
  
+}
+
+/* Responsive Font */
+/* xs < 768 */ 
+@media screen and (max-width: 767px) { 
+  body { font-size: 0.9em; }
+  
+  #main-container {
+    padding-top: 70px; 
+  }
+
+
+} 
+
+
+/* sm */ 
+@media screen and (min-width: 768px) { 
+  body { font-size: 1em; } 
+} 
+
+/* md */ 
+@media screen and (min-width: 992px) { 
+  body { font-size: 1.2em; } 
+} 
+
+/* lg */ 
+@media screen and (min-width: 1200px) { 
+  body { font-size: 1.3em; } 
 }
