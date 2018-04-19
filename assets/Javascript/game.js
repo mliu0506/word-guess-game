@@ -29,7 +29,7 @@ var userGuess = document.getElementById("playerChoice");
 
 // Main Program Start.
 // This function is run whenever the user presses a "Start" menu.
-document.getElementById("gameStart").onclick = function() {buttons()};
+document.getElementById("gameStart").onclick = function() {startGame()};
 
 // This function is run whenever the user presses a key after the game start.
 document.onkeyup = function(event) {
