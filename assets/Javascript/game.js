@@ -1,8 +1,11 @@
+//When window on load, it will triger the program below
+window.onload = function () {
+
 //Made the variables first to use in the functions
 //Array of words.
 var Words = ['dragonite', 'eevee', 'pikachu', 'meowth', 'snorlax', 'vulpix', 'charmander', 'squirtle', 'jigglypuff'
 ];
-var blanksAndSuccess = []; //Correct guesses and blanks will be in this array
+var guesses = []; //stored Correct guesses and blanks will be in this array
 var blanks = 0; //holds blanks spaces for the word chosen
 var currentWord = "";
 var currentLetters = [];
@@ -11,9 +14,7 @@ var winCounter = 0;
 var lossCounter = 0;
 var numGuesses = 12;
 
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-  'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-];
+
 
 //array for users guessed letters
 var guessedLetter = [];
@@ -49,7 +50,7 @@ document.onkeyup = function(event) {
 //Below is the functionality of the game start at the First time
 function startGame() {
   numGuesses = 12;
-  blanksAndSuccess = [];
+  guesses = [];
   guessedLetter = [];
   incorrectGuess = [];
   //Selects a words at random
@@ -61,12 +62,12 @@ function startGame() {
   //Need to know how many blanks for a word
   blanks = currentLetters.length;
   for (var i = 0; i < blanks; i++) {
-    blanksAndSuccess.push("_")
+    guesses.push("_")
   }
   console.log(currentWord);
 
   //print the blank on the screen
-  document.getElementById('currentWord').innerHTML = "Pokemon Name: " + blanksAndSuccess.join(" ");
+  document.getElementById('currentWord').innerHTML = "Pokemon Name: " + guesses.join(" ");
   document.getElementById('guessesRemaining').innerHTML = "Number Of Guesses Remaining: " + numGuesses;
   document.getElementById('guessed').innerHTML = "Letters Already Guessed: ";
 }
@@ -75,6 +76,9 @@ function startGame() {
 function checkLetters(letter) {
   //using Boolean to check if the letter is in the word
   var letterInWord = false;
+  /*
+  var letter = str.toLowerCase();
+*/
   //loop that goes through the length of the word
   for (var i = 0; i < blanks; i++) {
     if (currentWord[i] == letter) {
@@ -85,10 +89,10 @@ function checkLetters(letter) {
     for (var i = 0; i < blanks; i++) {
 
       if (currentWord[i] == letter) {
-        blanksAndSuccess[i] = letter
+        guesses[i] = letter
       }
     }
-    console.log(blanksAndSuccess);
+    console.log(guesses);
 
   } else {
     incorrectGuess.push(letter);
@@ -104,12 +108,12 @@ function PrintResult() {
 
   // Update the HTML to reflect the new number of guesses. Also update the correct guesses.
   document.getElementById("guessesRemaining").innerHTML = "Number Of Guesses Remaining: " + numGuesses;
-  document.getElementById("currentWord").innerHTML = "Pokemon Name: " + blanksAndSuccess.join(" ");
+  document.getElementById("currentWord").innerHTML = "Pokemon Name: " + guesses.join(" ");
   document.getElementById("playerChoice").innerHTML = "Key Entered: " + userGuess.textContent;
   document.getElementById("guessed").innerHTML = "Letters Already Guessed: " + incorrectGuess.join(" ");
 
   // If we have gotten all the letters to match the solution... 
-  if (currentLetters.toString() == blanksAndSuccess.toString()) {
+  if (currentLetters.toString() == guesses.toString()) {
     winCounter++; // add to the win counter 
     document.getElementById("word").innerHTML = "The last word was " + currentWord;
     document.getElementById("imageID").src = "assets/images/" + currentWord + ".gif" ;
@@ -135,6 +139,6 @@ function PrintResult() {
   }
 }
 
-//Making the stuff run
-//Calling the startGame function
+
 startGame();
+}
