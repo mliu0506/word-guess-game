@@ -51,7 +51,8 @@
   </nav>
 
   <!-- Main Body -->
-  <div id="main-container" class="container">
+
+  <div  id="main-container" class="container">
     <section class="main-section">
       <!-- start the Grid  -->
         <!--     Grid Netting    -->       
@@ -63,7 +64,7 @@
           <div class="row mh1 col-12">
               <p id="guessed">Letters Already Guessed:</p>
           </div>
-          <div class= "row col-6">
+          <div class= "row col-8">
                     <div class="row mh1 col-12">
                             <p id="playerChoice">Key Entered: </p> 
                     </div>
@@ -92,17 +93,19 @@
                     </div>
                      
           </div>        
-          <div class= "row col-6 align-items-center justify-content-center">         
-                  <figure class= "right">
-                      <img id= "imageID" class="img-fluid" src="assets/images/question_mark.jpg">
-                      <h3 id ="imageName"></h3>
+          <div class= "row col-4 justify-content-center">         
+          
+          <!-- Bootstrap Figure  image fluid.  It displaying related images and text with the figure component in Bootstrap-->
+          
+            <figure class= "figure">
+                      <img id= "imageID" class="img-fluid rounded" src="assets/images/question_mark.jpg">
+                      <figcaption  id ="imageName"class="figure-caption text-right"></figcaption>
+                   
                   </figure>
           </div>
        </div> <!-- Close the Grid Netting-->
          
     </section>      
-             
-  
   </div>
         
 
