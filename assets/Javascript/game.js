@@ -15,7 +15,6 @@ var lossCounter = 0;
 var numGuesses = 12;
 
 
-
 //array for users guessed letters
 var guessedLetter = [];
 //array for users correct guesses
@@ -23,31 +22,10 @@ var correctLetter = [];
 //guessed letters that are incorrect
 var incorrectGuess = [];
 
+// User input key
+var  userGuess = document.getElementById("playerChoice"); 
 
-
-
-var userGuess = document.getElementById("playerChoice"); 
-
-// Main Program Start.
-// This function is run whenever the user presses a "Start" menu.
-document.getElementById("gameStart").onclick = function() {startGame()};
-
-// This function is run whenever the user presses a key after the game start.
-document.onkeyup = function(event) {
-  userGuess.textContent=event.key; 
-  console.log(userGuess.textContent) ;  
-  guessedLetter.push(userGuess.textContent);
-  document.getElementById('guessed').innerHTML = "Letters Already Guessed: " + guessedLetter.join(" ");
-  // runs the code to check for correctness (refer to the below checkLetters function)
-  checkLetters(userGuess.textContent); 
-  // Print the final result on the screen (refer to the below PrintResult function)
-  PrintResult();
-}
-
-
-
-
-//Below is the functionality of the game start at the First time
+//Define a function called startGame which will print the blanks and set the total number of count.
 function startGame() {
   numGuesses = 12;
   guesses = [];
@@ -55,7 +33,6 @@ function startGame() {
   incorrectGuess = [];
   //Selects a words at random
   currentWord = Words[Math.floor(Math.random() * Words.length)];
-
   //Splits the current word into letters, so that you can match the users guesses to the letters of the word
   currentLetters = currentWord.split("");
 
@@ -65,20 +42,18 @@ function startGame() {
     guesses.push("_")
   }
   console.log(currentWord);
-
-  //print the blank on the screen
-  document.getElementById('currentWord').innerHTML = "Pokemon Name: " + guesses.join(" ");
-  document.getElementById('guessesRemaining').innerHTML = "Number Of Guesses Remaining: " + numGuesses;
-  document.getElementById('guessed').innerHTML = "Letters Already Guessed: ";
+ 
+  userGuess.textContent = "";
+  // Print the blanks on the screen (refer to the below PrintResult function)
+  PrintResult();
 }
 
-//Checks if users letter is in the word
+
+//Define a checkLetters function which checks if users letter is in the word
 function checkLetters(letter) {
   //using Boolean to check if the letter is in the word
   var letterInWord = false;
-  /*
-  var letter = str.toLowerCase();
-*/
+
   //loop that goes through the length of the word
   for (var i = 0; i < blanks; i++) {
     if (currentWord[i] == letter) {
@@ -101,17 +76,19 @@ function checkLetters(letter) {
   }
 }
 
-//Upon finishing print the result on the screen
+//Define a PrintResult function which will print the result on the screen upon finishing. 
 function PrintResult() {
 
-  console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | NumGuesses: " + numGuesses);
+  console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | NumGuesses: " + numGuesses + " | Key Entered: " + userGuess.textContent + " | Pokemon Name: " + guesses.join(" ") + " | Already Guessed: " + incorrectGuess.join(" "));
 
+  
   // Update the HTML to reflect the new number of guesses. Also update the correct guesses.
-  document.getElementById("guessesRemaining").innerHTML = "Number Of Guesses Remaining: " + numGuesses;
   document.getElementById("currentWord").innerHTML = "Pokemon Name: " + guesses.join(" ");
-  document.getElementById("playerChoice").innerHTML = "Key Entered: " + userGuess.textContent;
   document.getElementById("guessed").innerHTML = "Letters Already Guessed: " + incorrectGuess.join(" ");
-
+  document.getElementById("playerChoice").innerHTML = "Key Entered: " + userGuess.textContent;
+  document.getElementById("guessesRemaining").innerHTML = "Number Of Guesses Remaining: " + numGuesses;
+  
+  
   // If we have gotten all the letters to match the solution... 
   if (currentLetters.toString() == guesses.toString()) {
     winCounter++; // add to the win counter 
@@ -121,7 +98,8 @@ function PrintResult() {
 
     // Update the win counter in the HTML
     document.getElementById("winCounter").innerHTML = "You have won " + winCounter + " game(s)";
-    startGame(); // restart the game 
+   // restart the game automatically
+    startGame(); 
   }
 
   // If we've run out of guesses
@@ -137,8 +115,18 @@ function PrintResult() {
     // restart the game automatically
     startGame(); 
   }
+
 }
 
-
-startGame();
+// Main program - game start
+startGame(); //call startGame function
+// This function will run whenever the user presses a key after the game start.
+document.onkeyup = function(event) {
+  userGuess.textContent=event.key; 
+  guessedLetter.push(userGuess.textContent);
+  // runs the code to check for correctness (refer to the below checkLetters function)
+  checkLetters(userGuess.textContent); 
+  // Print the final result on the screen (refer to the below PrintResult function)
+  PrintResult();
+}
 }
