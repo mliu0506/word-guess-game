@@ -2,7 +2,7 @@
 
 https://mliu0506.github.io/word-guess-game/
 
-Pokemon Guess Word is using HTML5, CSS3, Bootstrap 4 and JavaScript.  
+Pokemon Guess Word is using HTML5, CSS3, Bootstrap 4 and JavaScript.  
 
 This appliaction is support different screen size.  For example, iphone, ipad, and PC version.
 
