@@ -1,4 +1,4 @@
-# word-guess-game
+# word-guess-game (Pokemon Guess Word)
 
 https://mliu0506.github.io/word-guess-game/
 
