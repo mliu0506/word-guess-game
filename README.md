@@ -2,6 +2,10 @@
 
 https://mliu0506.github.io/word-guess-game/
 
+Pokemon Guess Word is using HTML5, CSS3, Bootstrap 4 and JavaScript.  
+
+This appliaction is support Mobile, ipad, and PC version.
+
 Guess the Pokemon Character Name.
 Use Key events to listen for the letters that the player will type.
 Press any key to get started!
