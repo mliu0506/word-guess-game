@@ -29,7 +29,8 @@ var maxCookie = 10;
 var keywordArr = [];
 var cookieCount=0;
     
-function checkCookie() cookieCount= getCookie("keycount");
+function checkCookie() {
+    cookieCount= getCookie("keycount");
     keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
     if (cookieCount =="") {
         cookieCount = 0;
@@ -38,8 +39,6 @@ function checkCookie() cookieCount= getCookie("keycount");
         cookieCount++;
         alert("Show Keyword " + cookieCount + " : " + getCookie("keyword"+cookieCount));
     }
-    
-   
     //Load the Array from the cookie until empty
    if (keywordArr[cookieCount] != "" && keywordArr[cookieCount] != null) {
     alert("Welcome again " + getCookie("keyword"+cookieCount));
@@ -51,10 +50,10 @@ function checkCookie() cookieCount= getCookie("keycount");
     } else {
     //insert new Keyword
     keyword = prompt("Please enter your keyword:","");
-    if (keyword != "" && keyword != null) {
-           keywordArr[cookieCount].push(keyword);
+    if (keyword != "" && keyword != null) {  
            setCookie("keycount", cookieCount, 30);
            setCookie("keyword"+cookieCount, keyword, 30);
+          // keywordArr[cookieCount].push(keyword);
          
 
     }   
