@@ -31,12 +31,15 @@ var cookieCount=0;
     
 function checkCookie() {
     //Load the Array from the cookie until empty
-   while(keywordArr[cookieCount] =="") {
-       keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
-       cookieCount++;
-   }
-    
-
+   keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
+   alert("Show Keyword " + getCookie("keyword"+cookieCount));
+   if (keywordArr[cookieCount] != "") {
+        while(keywordArr[cookieCount] =="") {
+            keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
+            cookieCount++;
+            alert("Show Keyword " + getCookie("keyword"+cookieCount));
+        }
+    } else {
     //insert new Keyword
     keyword = prompt("Please enter your keyword:","");
     if (keyword != "" && keyword != null) {
