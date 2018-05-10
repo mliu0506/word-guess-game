@@ -25,18 +25,21 @@ function getCookie(cname) {
     return "";
 }
 function checkCookie() {
-    var user=getCookie("keyword1");
-    if (user != "") {
-        alert("Welcome again " + user);
-        alert(document.domain);
-    } else {
-        alert(document.domain);
-       user = prompt("Please enter your keyword:","");
-       if (user != "" && user != null) {
-           setCookie("keyword1", user, 30);
-           alert(document.domain);
-       }
-    }
+    //Load the Array from the cookie until empty
+   while(keywordArr[cookieCount] =="") {
+       keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
+       cookieCount++;
+   }
+    
+
+    //insert new Keyword
+    keyword = prompt("Please enter your keyword:","");
+    if (keyword != "" && keyword != null) {
+           keywordArr[cookieCount].push(keyword);
+           setCookie("keyword"+cookieCount, keyword, 30);
+           alert("Show Keyword " + getCookie("keyword"+cookieCount));
+
+    }   
 }
        
 </script>
