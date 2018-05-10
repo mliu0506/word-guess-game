@@ -30,11 +30,15 @@ var keywordArr = [];
 var cookieCount=0;
     
 function checkCookie() {
+    keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
+   
     //Load the Array from the cookie until empty
-   keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
-   alert("Show Keyword " + getCookie("keyword"+cookieCount));
    if (keywordArr[cookieCount] != "") {
-        while(keywordArr[cookieCount] =="") {
+    //    alert( + keyword);
+    alert("Welcome again " + getCookie("keyword"+cookieCount));
+    //}
+   
+         while(keywordArr[cookieCount] =="") {
             keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
             cookieCount++;
             alert("Show Keyword " + getCookie("keyword"+cookieCount));
