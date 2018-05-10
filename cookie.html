@@ -30,6 +30,7 @@ var keywordArr = [];
 var cookieCount=0;
     
 function checkCookie() {
+    cookieCount= getCookie("count");
     keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
     alert("Show Keyword " + cookieCount + " : " + getCookie("keyword"+cookieCount));
    
@@ -46,8 +47,9 @@ function checkCookie() {
     keyword = prompt("Please enter your keyword:","");
     if (keyword != "" && keyword != null) {
            keywordArr[cookieCount].push(keyword);
+           setCookie("count",cookieCount, 30);
            setCookie("keyword"+cookieCount, keyword, 30);
-           alert("Show Keyword " + getCookie("keyword"+cookieCount));
+           cookiecount++;
 
     }   
 }
