@@ -24,6 +24,20 @@ function getCookie(cname) {
     }
     return "";
 }
+function checkCookie() {
+    var user=getCookie("keyword1");
+    if (user != "") {
+        alert("Welcome again " + user);
+        alert(document.domain);
+    } else {
+        alert(document.domain);
+       user = prompt("Please enter your keyword:","");
+       if (user != "" && user != null) {
+           setCookie("keyword1", user, 30);
+           alert(document.domain);
+       }
+    }
+}
        
 </script>
 </head>
