@@ -42,7 +42,7 @@ function checkCookie() {
     
    
     //Load the Array from the cookie until empty
-   if (keywordArr[cookieCount] != "") {
+   if (keywordArr[cookieCount] != "" && keywordArr[cookieCount] != null) {
     alert("Welcome again " + getCookie("keyword"+cookieCount));
          while(keywordArr[cookieCount] =="") {
             keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
