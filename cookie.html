@@ -31,6 +31,7 @@ var cookieCount=0;
     
 function checkCookie() {
     keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
+    alert("Show Keyword " + cookieCount + " : " + getCookie("keyword"+cookieCount));
    
     //Load the Array from the cookie until empty
    if (keywordArr[cookieCount] != "") {
