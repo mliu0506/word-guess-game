@@ -29,8 +29,7 @@ var maxCookie = 10;
 var keywordArr = [];
 var cookieCount=0;
     
-function checkCookie() {
-    cookieCount= parseInt(getCookie("count"));
+function checkCookie() cookieCount= getCookie("keycount");
     keywordArr[cookieCount] =getCookie("keyword"+cookieCount);
     if (cookieCount =="") {
         cookieCount = 0;
@@ -54,7 +53,7 @@ function checkCookie() {
     keyword = prompt("Please enter your keyword:","");
     if (keyword != "" && keyword != null) {
            keywordArr[cookieCount].push(keyword);
-           setCookie("count", toString(cookieCount), 30);
+           setCookie("keycount", cookieCount, 30);
            setCookie("keyword"+cookieCount, keyword, 30);
          
 
