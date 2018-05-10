@@ -24,6 +24,11 @@ function getCookie(cname) {
     }
     return "";
 }
+    
+var maxCookie = 10;
+var keywordArr = [];
+var cookieCount=0;
+    
 function checkCookie() {
     //Load the Array from the cookie until empty
    while(keywordArr[cookieCount] =="") {
